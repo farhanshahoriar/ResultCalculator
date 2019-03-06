@@ -4,20 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".MainActivity">
-
+    tools:context=".DisplayResult">
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Select Class"/>
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/bt_class_one"
-        android:onClick="onClkClassOnResult"
-        android:textSize="18dp"
-        android:text="Class One"/>
-
+        android:text="Result to be displayed"/>
 
 </LinearLayout>
