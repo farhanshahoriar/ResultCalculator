@@ -4,10 +4,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".DisplayResult">
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Result to be displayed"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/search_key"
+        android:textSize="20sp"
+        />
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_food_menu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    </android.support.v7.widget.RecyclerView>
 
 </LinearLayout>

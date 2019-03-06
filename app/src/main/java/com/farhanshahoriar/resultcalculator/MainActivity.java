@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
 
         Toast.makeText(this,"BtnOne",Toast.LENGTH_LONG).show();
         Intent intent = new Intent(this,DisplayResult.class);
-        intent.putExtra("Class","one");
+        intent.putExtra("Class","1");
         startActivity(intent);
 
     }
