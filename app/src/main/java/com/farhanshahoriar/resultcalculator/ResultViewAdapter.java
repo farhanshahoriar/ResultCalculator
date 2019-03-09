@@ -12,7 +12,7 @@ public class ResultViewAdapter extends RecyclerView.Adapter<ResultViewAdapter.Re
     public IndividualResult[] resultData = null;
     @Override
     public void onBindViewHolder(@NonNull ResultViewHolder resultViewHolder, int pos) {
-        String strData= resultData[pos].oldRoll+" \t"+ resultData[pos].nickName+" \t"+ resultData[pos].totalMarks;
+        String strData= resultData[pos].oldRoll+" \t"+ resultData[pos].nickName+" \t"+resultData[pos].marks[0]+" \t"+resultData[pos].marks[1]+" \t"+resultData[pos].marks[2]+" \t"+ resultData[pos].totalMarks;
         resultViewHolder.resultTextView.setText(strData);
     }
 

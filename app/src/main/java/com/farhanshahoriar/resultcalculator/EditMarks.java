@@ -74,10 +74,10 @@ public class EditMarks extends AppCompatActivity {
                         resultArrayList.get(i).marks[0] = individualResult.marks[0];
                     }
                     if (!emrk.equals("")) {
-                        resultArrayList.get(i).marks[0] = individualResult.marks[0];
+                        resultArrayList.get(i).marks[1] = individualResult.marks[1];
                     }
                     if (!mmrk.equals("")) {
-                        resultArrayList.get(i).marks[0] = individualResult.marks[0];
+                        resultArrayList.get(i).marks[2] = individualResult.marks[2];
                     }
                     resultArrayList.get(i).updateSum();
                     exits = true;
