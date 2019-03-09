@@ -6,9 +6,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -19,11 +22,14 @@ public class DisplayResult extends AppCompatActivity {
 
     private TextView keyText;
     private String key = null;
-
+    String cls = "";
+    String fileName = null;
+    public String inputcsvLine = null;
     private RecyclerView fRecyclerView;
     private ResultViewAdapter resultViewAdapter;
 
-    final int dataSize=5;
+    ArrayList<IndividualResult> resultList ;
+    File file1;
     //public IndividualResult[] resultData;
 
     @Override
@@ -35,9 +41,9 @@ public class DisplayResult extends AppCompatActivity {
 
         Intent searchIntent = getIntent();
         key="";
-        String fileName = null;
+
         if(searchIntent.hasExtra("Class")){
-            String cls = searchIntent.getStringExtra("Class");
+            cls = searchIntent.getStringExtra("Class");
             if(cls.equals("1")){
                 fileName = "resultdata.csv";
                 keyText.setText("Class One Result:\n");
@@ -53,33 +59,26 @@ public class DisplayResult extends AppCompatActivity {
         resultViewAdapter = new ResultViewAdapter();
         fRecyclerView.setAdapter(resultViewAdapter);
 
-        AssetManager assetManager = getAssets();
-        // String [] files = assetManager.list("");
-        InputStream inputfs = null;
 
-        try {
-            inputfs = assetManager.open(fileName);
-        } catch (IOException e) {
-            e.printStackTrace();
+
+        String fileName = "resultdata"+cls+".csv";
+        file1 = new File(getApplicationContext().getFilesDir(),"data.csv");
+        if(file1.exists()) {
+            resultList = ResultUtilites.loadDataFile(file1);
+            IndividualResult[] resultArray = null;
+            resultArray = resultList.toArray(new IndividualResult[resultList.size()]);
+
+            Arrays.sort(resultArray);
+            resultViewAdapter.setData(resultArray);
         }
-        Scanner fsc = new Scanner(inputfs);
-
-        ArrayList<IndividualResult> resultList = new ArrayList<>();
-        String inputstr;
-        int in=0;
-
-        while (fsc.hasNext()){
-
-            inputstr = fsc.nextLine();
-            IndividualResult individualResult = new IndividualResult();
-            individualResult.setDatadata(inputstr);
-            resultList.add(individualResult);
+        else {
+            resultViewAdapter.setData(null);
         }
-
-        IndividualResult[] resultArray = null;
-        resultArray= resultList.toArray(new IndividualResult[resultList.size()]);
-        Arrays.sort(resultArray);
-
-        resultViewAdapter.setData(resultArray);
+    }
+    void onAddStudent(View view){
+        Intent intent = new Intent(this,EditMarks.class);
+        intent.putExtra("Class",cls);
+        startActivity(intent);
+        //Next part is not working.
     }
 }

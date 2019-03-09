@@ -6,6 +6,19 @@ public class IndividualResult implements Comparable{
     public double totalMarks,averageMarks;
     public double []marks = new double[10];
 
+    public String getCsvLine(){
+        String csvLine= oldRoll+","+newRoll+","+nickName+",";
+        for(int i=0;i<totalSubjects;i++){
+            csvLine+=marks[i]+",";
+        }
+        return csvLine;
+    }
+    public void updateSum(){
+        totalMarks=0;
+        for(int i=0;i<totalSubjects;i++){
+            totalMarks+=marks[i];
+        }
+    }
     public void setDatadata(String str) {
         int s=0,ln=str.length(),dcnt=0;
         String part;
@@ -28,11 +41,10 @@ public class IndividualResult implements Comparable{
                     case 2:
                         nickName = part;
                         break;
-
-                        default:
-                            marks[dcnt-3] = Integer.parseInt(part);
-                            totalSubjects++;
-                            totalMarks+=marks[dcnt-3];
+                    default:
+                        marks[dcnt-3] = Double.parseDouble(part);
+                        totalSubjects++;
+                        totalMarks+=marks[dcnt-3];
                 }
 
                 dcnt++;

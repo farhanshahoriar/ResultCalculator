@@ -16,6 +16,12 @@
         android:id="@+id/search_key"
         android:textSize="20sp"
         />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add Student"
+        android:onClick="onAddStudent"
+        />
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rv_food_menu"
         android:layout_width="match_parent"

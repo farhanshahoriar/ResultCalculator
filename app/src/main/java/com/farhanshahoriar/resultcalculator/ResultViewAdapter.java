@@ -31,6 +31,7 @@ public class ResultViewAdapter extends RecyclerView.Adapter<ResultViewAdapter.Re
         }
 
     }
+
     @Override
     public ResultViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType){
         LayoutInflater inflater = LayoutInflater.from(viewGroup.getContext());
