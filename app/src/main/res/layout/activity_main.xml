@@ -10,14 +10,51 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Select Class"/>
-    <Button
+        android:text="Welcome to RC"
+        android:textSize="24sp"/>
+
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/bt_class_one"
-        android:onClick="onClkClassOnResult"
-        android:textSize="18dp"
+        android:text="Select Class:\n"
+        android:textSize="20sp"
+        />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+
+        android:onClick="onClkClass1Result"
+        android:textSize="25sp"
         android:text="Class One"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+
+        android:onClick="onClkClass2Result"
+        android:textSize="25sp"
+        android:text="Class Two"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+
+        android:onClick="onClkClass3Result"
+        android:textSize="25sp"
+        android:text="Class Three"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+
+        android:onClick="onClkClass4Result"
+        android:textSize="25sp"
+        android:text="Class Four"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+
+        android:onClick="onClkClass5Result"
+        android:textSize="25sp"
+        android:text="Class Five"/>
 
 
 </LinearLayout>

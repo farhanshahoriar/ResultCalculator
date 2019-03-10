@@ -1,10 +1,12 @@
 package com.farhanshahoriar.resultcalculator;
 
+import android.content.Intent;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -19,6 +21,7 @@ public class EditMarks extends AppCompatActivity {
     private TextInputLayout englishTextInputLayout;
     private TextInputLayout mathTextInputLayout;
     private TextView textView;
+    String cls = null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,11 +32,17 @@ public class EditMarks extends AppCompatActivity {
         englishTextInputLayout = (TextInputLayout) findViewById(R.id.til_marks_english);
         mathTextInputLayout = (TextInputLayout) findViewById(R.id.til_marks_math);
         textView = (TextView) findViewById(R.id.tv_demo);
+
+        Intent intent = getIntent();
+        if(intent.hasExtra("Class")){
+            cls = intent.getStringExtra("Class");
+        }
     }
     void addmarks(View view){
         int roll;
         String inputstr,csvline="";
         String bmrk,emrk,mmrk;
+
         inputstr = rollTextIL.getEditText().getText().toString();
         roll =Integer.parseInt(inputstr);
         csvline+=inputstr+",";
@@ -54,9 +63,9 @@ public class EditMarks extends AppCompatActivity {
         if(inputstr.equals(""))inputstr="0";
         csvline+=inputstr+",";
 
-        File file1 = new File(getApplicationContext().getFilesDir(),"data.csv");
-        //FileOutputStream fos = new FileOutputStream(file1);
-        textView.setText(csvline+"\n"+file1.toString());
+        String fileName = "resultdata"+cls+".csv";
+        File file1 = new File(getApplicationContext().getFilesDir(),fileName);
+
         ArrayList<IndividualResult> resultArrayList = new ArrayList<>() ;
         IndividualResult individualResult = new IndividualResult();
         individualResult.setDatadata(csvline);
@@ -100,7 +109,12 @@ public class EditMarks extends AppCompatActivity {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
+        textView.setText("Result Added");
+        Toast.makeText(this,"Result Added",Toast.LENGTH_LONG).show();
 
+        Intent intent = new Intent(this,DisplayResult.class);
+        intent.putExtra("Class",cls);
+        startActivity(intent);
         //DisplayResult
     }
 }

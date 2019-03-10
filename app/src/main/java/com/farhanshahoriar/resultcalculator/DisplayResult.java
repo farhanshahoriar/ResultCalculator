@@ -44,9 +44,9 @@ public class DisplayResult extends AppCompatActivity {
 
         if(searchIntent.hasExtra("Class")){
             cls = searchIntent.getStringExtra("Class");
+            keyText.setText("Class: "+cls+"\n");
             if(cls.equals("1")){
-                fileName = "resultdata.csv";
-                keyText.setText("Class One Result:\n");
+
             }
             //Toast.makeText(this,key, Toast.LENGTH_LONG).show();
 
@@ -62,13 +62,16 @@ public class DisplayResult extends AppCompatActivity {
 
 
         String fileName = "resultdata"+cls+".csv";
-        file1 = new File(getApplicationContext().getFilesDir(),"data.csv");
+        file1 = new File(getApplicationContext().getFilesDir(),fileName);
         if(file1.exists()) {
             resultList = ResultUtilites.loadDataFile(file1);
             IndividualResult[] resultArray = null;
             resultArray = resultList.toArray(new IndividualResult[resultList.size()]);
 
             Arrays.sort(resultArray);
+            for(int i=0;i<resultArray.length;i++){
+                resultArray[i].newRoll=i+1;
+            }
             resultViewAdapter.setData(resultArray);
         }
         else {

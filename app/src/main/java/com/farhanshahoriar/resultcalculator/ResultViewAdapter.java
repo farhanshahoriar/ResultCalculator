@@ -12,8 +12,10 @@ public class ResultViewAdapter extends RecyclerView.Adapter<ResultViewAdapter.Re
     public IndividualResult[] resultData = null;
     @Override
     public void onBindViewHolder(@NonNull ResultViewHolder resultViewHolder, int pos) {
-        String strData= resultData[pos].oldRoll+" \t"+ resultData[pos].nickName+" \t"+resultData[pos].marks[0]+" \t"+resultData[pos].marks[1]+" \t"+resultData[pos].marks[2]+" \t"+ resultData[pos].totalMarks;
-        resultViewHolder.resultTextView.setText(strData);
+        String sMarks = resultData[pos].marks[0]+" \t"+resultData[pos].marks[1]+" \t"+resultData[pos].marks[2]+" \t"+ resultData[pos].totalMarks +"    \t"+ resultData[pos].newRoll;
+        resultViewHolder.tvOldRoll.setText(String.valueOf(resultData[pos].oldRoll));
+        resultViewHolder.tvName.setText(resultData[pos].nickName);
+        resultViewHolder.tvMarks.setText(sMarks);
     }
 
     @Override
@@ -23,11 +25,15 @@ public class ResultViewAdapter extends RecyclerView.Adapter<ResultViewAdapter.Re
     }
 
     public class ResultViewHolder extends RecyclerView.ViewHolder{
-        TextView resultTextView;
+        TextView tvOldRoll;
+        TextView tvName;
+        TextView tvMarks;
 
         public ResultViewHolder(View view){
             super(view);
-            resultTextView = (TextView) view.findViewById(R.id.tv_item_text);
+            tvOldRoll = (TextView) view.findViewById(R.id.tv_item_text_id);
+            tvName = (TextView) view.findViewById(R.id.tv_item_text_name);
+            tvMarks = (TextView) view.findViewById(R.id.tv_item_text_marks);
         }
 
     }
