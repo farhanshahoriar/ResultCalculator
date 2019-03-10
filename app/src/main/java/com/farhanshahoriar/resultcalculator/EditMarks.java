@@ -38,7 +38,7 @@ public class EditMarks extends AppCompatActivity {
             cls = intent.getStringExtra("Class");
         }
     }
-    void addmarks(View view){
+    public void addmarks(View view){
         int roll;
         String inputstr,csvline="";
         String bmrk,emrk,mmrk;

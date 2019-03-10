@@ -45,9 +45,7 @@ public class DisplayResult extends AppCompatActivity {
         if(searchIntent.hasExtra("Class")){
             cls = searchIntent.getStringExtra("Class");
             keyText.setText("Class: "+cls+"\n");
-            if(cls.equals("1")){
 
-            }
             //Toast.makeText(this,key, Toast.LENGTH_LONG).show();
 
         }
@@ -62,6 +60,7 @@ public class DisplayResult extends AppCompatActivity {
 
 
         String fileName = "resultdata"+cls+".csv";
+
         file1 = new File(getApplicationContext().getFilesDir(),fileName);
         if(file1.exists()) {
             resultList = ResultUtilites.loadDataFile(file1);
@@ -78,7 +77,7 @@ public class DisplayResult extends AppCompatActivity {
             resultViewAdapter.setData(null);
         }
     }
-    void onAddStudent(View view){
+    public void onAddStudent(View view){
         Intent intent = new Intent(this,EditMarks.class);
         intent.putExtra("Class",cls);
         startActivity(intent);

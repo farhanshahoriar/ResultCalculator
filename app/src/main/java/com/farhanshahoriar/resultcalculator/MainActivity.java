@@ -1,11 +1,13 @@
 package com.farhanshahoriar.resultcalculator;
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.VisibleForTesting;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
@@ -14,16 +16,21 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        TextView view =(TextView) findViewById(R.id.welc_tv);
+        //getApplicationContext().getDataDir().toString()
+
+        view.setText( getApplicationContext().getFilesDir().toString());
     }
 
-    void onClkClass1Result(View view){
-
+    public void onClickClass1Result(View view){
+        Toast.makeText(this,"BtnOne",Toast.LENGTH_LONG).show();
         Intent intent = new Intent(this,DisplayResult.class);
         intent.putExtra("Class","1");
+
         startActivity(intent);
 
     }
-    void onClkClass2Result(View view){
+    public void onClkClass2Result(View view){
 
         //Toast.makeText(this,"BtnOne",Toast.LENGTH_LONG).show();
         Intent intent = new Intent(this,DisplayResult.class);
@@ -31,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
 
     }
-    void onClkClass3Result(View view){
+    public void onClkClass3Result(View view){
 
         //Toast.makeText(this,"BtnOne",Toast.LENGTH_LONG).show();
         Intent intent = new Intent(this,DisplayResult.class);
@@ -39,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
 
     }
-    void onClkClass4Result(View view){
+    public void onClkClass4Result(View view){
 
         //Toast.makeText(this,"BtnOne",Toast.LENGTH_LONG).show();
         Intent intent = new Intent(this,DisplayResult.class);
@@ -47,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
 
     }
-    void onClkClass5Result(View view){
+    public void onClkClass5Result(View view){
 
         //Toast.makeText(this,"BtnOne",Toast.LENGTH_LONG).show();
         Intent intent = new Intent(this,DisplayResult.class);
