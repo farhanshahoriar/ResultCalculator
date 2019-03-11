@@ -36,7 +36,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="16sp"
-                android:padding="16dp"
+                android:padding="1dp"
                 android:layout_weight="1"/>
             <TextView
                 android:id="@+id/tv_item_text_namett"
@@ -44,7 +44,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="16sp"
-                android:padding="16dp"
+                android:padding="1dp"
                 android:layout_weight="2"/>
 
             <TextView
@@ -53,7 +53,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="13sp"
-                android:padding="16dp"
+                android:padding="1dp"
                 android:layout_weight="10"/>
         </LinearLayout>
         <View
